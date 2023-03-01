@@ -1,1 +1,3 @@
 # musicai
+
+![](demo.gif)
