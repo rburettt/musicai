@@ -8,7 +8,9 @@
 
 ### API informations
 In generate_image.py, add Unsplash API key
+
 In lyrics_classification.py, add Genius API key
+
 In sentiment_analysis_acoustic_properties.py, add Spotify API informations
 
 ### Running the app
