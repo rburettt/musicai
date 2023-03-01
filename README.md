@@ -1,17 +1,20 @@
 # musicai
 
+This application takes a song and uses ML to analyse its lyrics and acoustic properties.
+With the predicted information, it generates two images and a color palette;
+
 ## Demo 
 
 ![](demo.gif)
 
 ## Usage
 
-### API informations
-In generate_image.py, add Unsplash API key
+### API requirements
+In generate_image.py, add your Unsplash API key
 
-In lyrics_classification.py, add Genius API key
+In lyrics_classification.py, add your Genius API key
 
-In sentiment_analysis_acoustic_properties.py, add Spotify API informations
+In sentiment_analysis_acoustic_properties.py, add your Spotify API informations
 
 ### Running the app
 
@@ -40,6 +43,13 @@ You can generate your own neural network that will classify songs based on acous
 To do so, use the files get-playlist-data.py (training set) and generate-ml-spotify-data-sentiment-analysis.py
 
 The model used to analyse the lyrics is not modifiable and was taken from https://huggingface.co/j-hartmann/emotion-english-roberta-large.
+
+### Stack
+
+Front-end: Tailwind
+Backend: Flask
+ML: Numpy, Panda, scikit-learn, Transformers
+API: Spotify (with Spotipy), Unsplash (with PyUnsplash) and Genius (with lyricsgenius)
 
 
 
