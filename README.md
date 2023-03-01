@@ -1,7 +1,7 @@
 # musicai
 
 This application takes a song and uses ML to analyse its lyrics and acoustic properties.
-With the predicted information, it generates two images and a color palette;
+With the predicted information, it then generates two images and a color palette;
 
 ## Demo 
 
