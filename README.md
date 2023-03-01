@@ -31,7 +31,7 @@ Run the app
 
 python app.py
 
-Note: the first time, you run the application, your web-browser will launch in order for you to login to Spotify (does not work with Safari as a default browser)
+Note: the first time you run the application, your web-browser will launch in order for you to login to Spotify (does not work with Safari as a default browser)
 
 ### Tweaking the ML model
 
