@@ -47,8 +47,11 @@ The model used to analyse the lyrics is not modifiable and was taken from https:
 ### Stack
 
 Front-end: Tailwind, color-thief
+
 Backend: Flask
+
 ML: Numpy, Panda, Scikit-learn, Transformers
+
 API: Spotify (with Spotipy), Unsplash (with PyUnsplash) and Genius (with lyricsgenius)
 
 ### Inspiration
