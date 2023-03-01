@@ -55,7 +55,7 @@ ML: Numpy, Panda, Scikit-learn, Transformers
 API: Spotify (with Spotipy), Unsplash (with PyUnsplash) and Genius (with lyricsgenius)
 
 ### Inspiration
-The idea for this app was inspired by[this article](https://medium.com/codex/music-mood-classification-using-neural-networks-and-spotifys-web-api-d73b391044a4)
+The idea for this app was inspired by [this article](https://medium.com/codex/music-mood-classification-using-neural-networks-and-spotifys-web-api-d73b391044a4)
 
 The code for getting the initial dataset that classified Spotify songs into categories was forked [this repo](https://github.com/kvsingh/music-mood-classification)
 
