@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Musicai</title>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <style>
+        body {background-color: black;}
+
+
+        #container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.side-image {
+  display: inline-block;
+  float: none;
+  padding: 10px;
+}
+
+.c-swatches__item {
+  width: 98px;
+  height: 60px;
+  display: inline-block;
+  background-color: limegreen;
+}
+
+
+      </style>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+<body>
+<h1 class="mb-4 pt-20 text-center text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Musicai</h1>
+
+
+<form method="post" style="margin:auto;" class="w-full max-w-lg pt-10">
+  <div class="flex flex-wrap -mx-3 mb-6"">
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label class="block uppercase text-center tracking-wide text-white text-xs font-bold mb-2" for="title">
+        Song Name
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="" name="song_name" value="{{ request.form['song_name'] }}">
+    </div>
+    <div class="w-full md:w-1/2 px-3">
+      <label class="block text-center uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
+        Song Artist
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="" name="song_artist" value="{{ request.form['song_artist'] }}">
+    </div>
+  </div>
+
+  <div class="flex items-center justify-center">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+      Work your magic
+    </button>
+  </div>
+
+</form>
+
+
+{% if acoustic_analysis is defined %}
+{% if most_common_word is defined %}
+<center><div class="pt-20"><h1 class="text-5xl font-extrabold dark:text-white">Tempo: {{ acoustic_analysis }} <small class="ml-2 font-semibold text-gray-500 dark:text-gray-400">most common word: {{ most_common_word }}</small></h1></div></center>
+{% endif %}
+{% endif %}
+
+
+
+
+{% if related_image_1 is defined %}
+{% if related_image_2 is defined %}
+<div id="container">
+
+  <img class="side-image" src="{{ related_image_1 }}" width="300" height="300">
+  
+  <img class="side-image" src="{{ related_image_2 }}" width="300" height="300">
+    
+  </div>
+  
+{% endif %}
+{% endif %}
+
+
+
+
+
+
+{% if infos is defined %}
+
+<img style="margin:auto" crossorigin="anonymous" class="pt-10" id="album_art" src="{{ infos['art_url'] }}"  width="300">
+
+<div style="text-align:center" class="c-swatches" id="js-palette-list">
+  <div class="c-swatches__item  c-swatches__item--first"></div>
+  <div class="c-swatches__item  c-swatches__item--second"></div>
+  <div class="c-swatches__item  c-swatches__item--third"></div>
+  <div class="c-swatches__item  c-swatches__item--fourth"></div>
+</div>
+
+
+<script>
+
+const colorThief = new ColorThief();
+var img = document.getElementById('album_art');
+var swatches = Array.from(document.getElementsByClassName('c-swatches__item'));
+
+if (img.complete) {
+  var palette = colorThief.getPalette(img, 4);
+  swatches[0].style.backgroundColor = `rgb(${palette[0]})`;
+  swatches[1].style.backgroundColor = `rgb(${palette[1]})`;
+  swatches[2].style.backgroundColor = `rgb(${palette[2]})`;
+  swatches[3].style.backgroundColor = `rgb(${palette[3]})`;
+} else {
+  img.addEventListener('load', function() {
+    var palette = colorThief.getPalette(img, 4);
+    swatches[0].style.backgroundColor = `rgb(${palette[0]})`;
+    swatches[1].style.backgroundColor = `rgb(${palette[1]})`;
+    swatches[2].style.backgroundColor = `rgb(${palette[2]})`;
+    swatches[3].style.backgroundColor = `rgb(${palette[3]})`;
+  });
+}
+
+</script>
+
+{% endif %}
+
+<footer>
+<div
+class="p-4 text-center" style="margin-top:100px;">
+<a class="text-white" href="https://tailwind-elements.com/">©2023, Remi Buret</a>
+</div>
+</footer>
+
+
+</body>
+</html>
+
