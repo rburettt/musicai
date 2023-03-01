@@ -21,7 +21,7 @@ python3 -m venv venv
 
 Activate it
 
-. venv/bin/activate
+.  venv/bin/activate
 
 Install the requirements
 
